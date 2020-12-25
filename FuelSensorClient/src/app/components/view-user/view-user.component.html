@@ -1,0 +1,123 @@
+<div class="content-header">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h4 class="page-title">View User</h4>
+
+        </div>
+
+    </div>
+</div>
+<div class="row">
+						
+    <div class="col-12">
+        
+        
+        <div class="box">
+            <div class="box-body">
+                <div class="row mb-10">
+                    
+                    <div class="col-md-12 col-lg-6">
+                        <button class="my myButton mr-1" (click)="searchOnlineUser()">Online User</button>
+                        <button class="my myButton mr-1" (click)="searchOfflineUser()">Offline User</button>
+                        <button class="my myButton mr-1" (click)="searchBlockedUser()">Blocked User</button>
+                        <button class="my myButton mr-1" (click)="SearchAllUser()">Active User</button>
+                    </div>
+                    <div class="col-md-6 col-lg-6 text-right">
+                            <ul class="box-controls pull-right">
+
+                                <li class="dropdown">
+                                    <a data-toggle="dropdown" href="#" aria-expanded="false"><i
+                                            class="ti-more-alt rotate-90"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end"
+                                        style="position: absolute; transform: translate3d(-100px, 21px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                        <!--<a class="dropdown-item" href="#"><i class="ti-import"></i> Import</a>-->
+                                        <a class="dropdown-item" href="#"><i class="ti-export"></i> Export</a>
+                                        <a class="dropdown-item" href="#"><i class="ti-printer"></i> Print</a>
+                                        <!--<div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+                            </div>-->
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                            <button
+                            class="my myButton" (click)="GotoAddUser()">Add User</button>
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-body">
+                <!-- <div id="slimtest8"> -->
+                    <div class="table-responsive tsc">
+                        <table class="unstyledTable table-striped table-bordered table-hover">
+                            <thead class="bg-primary2">
+                                <tr class="row-color">
+                                        <th class="fixheader" data-sort="int">
+
+                                                    <span>SL</span>
+
+                                            </th>
+                                            <th class="fixheader" data-sort="string">
+
+                                                <span>Client ID</span>
+                                        </th>
+                                    <th class="fixheader" data-sort="string">
+
+                                            <span>User ID</span>
+                                    </th>
+                                    <th class="fixheader" data-sort="string">
+
+                                            <span>Name</span>
+                                    </th>
+                                    <th class="fixheader" data-sort="string">
+
+                                            <span>Surname</span>
+                                    </th>
+                                    
+                                    <th class="fixheader" data-sort="string">
+
+                                            <span>Email</span>
+                                    </th>
+                                    <th class="fixheader" data-sort="string">
+
+                                            <span>Status</span>
+                                    </th>
+                                    <th class="fixheaderT">
+                                        <span>Action</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let obj of lstUser | orderBy: sortColumnName:sortReverse;let i=index">
+                                    <td>{{i+1}}</td>
+                                    <td>{{obj.ClientID}}</td>
+                                    <td>{{obj.UserID}}</td>
+                                    <td>{{obj.Name}}</td>
+                                    <td>{{obj.Surname}}</td>
+                                    <td>{{obj.EmailAddress}}</td>
+                                    <td><span class="badge badge-pill badge-success">{{obj.Status}}</span>
+                                    </td>
+                    
+                                    <td>
+                                      <a href="javascript:void(0)" class="text-danger" data-original-title="Edit" data-toggle="tooltip"
+                                        (click)="updateUser(obj)">
+                                        <i class="ti-marker-alt"></i>
+                                      </a> &nbsp;&nbsp;
+                                      <a href="javascript:void(0)" class="text-danger" data-original-title="Session Log"
+                                        data-toggle="tooltip" (click)="goToSessionLog(obj)">
+                                        <i class="ti-files"></i>
+                                      </a>
+                                    </td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

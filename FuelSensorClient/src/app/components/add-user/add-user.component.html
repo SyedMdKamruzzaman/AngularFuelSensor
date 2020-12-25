@@ -1,0 +1,244 @@
+<!-- Main content -->
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h4 class="page-title">Add User</h4>
+
+    </div>
+
+  </div>
+</div>
+
+
+<div class="row">
+
+  <div class="col-12">
+    <div class="box">
+      <div class="box-header bg-primary2 header-sub">
+        <span>User Info</span>
+      </div>
+      <div class="box-body">
+        <div class="row mb-2">
+          <div class="col-sm-2">
+            <label>User ID <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <input type="text" [(ngModel)]="user.UserID" class="col-xs-6 form-control mobileMarginBottom" id="user_id"
+                name="" ng-disabled="isUpdate" />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label>User Name <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <input type="text" [(ngModel)]="user.Name" class="col-xs-6 form-control mobileMarginBottom" id="name"
+                name="" />
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-sm-2">
+            <label>Password <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <input type="password" [(ngModel)]="user.Password" class="col-xs-6 form-control" id="password" name="" />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label>Repeat Password <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <input type="password" [(ngModel)]="user.RetypePassword" class="col-xs-6 form-control"
+                id="retype_password" name="" /> </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-sm-2">
+            <label>Surname <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <input type="text" [(ngModel)]="user.Surname" class="col-xs-6 form-control mobileMarginBottom"
+                id="surname" name="" />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label>Password Expiry Date <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <!-- <input type="date" placeholder="yyyy-mm-dd" [value]="user.PasswordExpiryDate" [(ngModel)]="user.PasswordExpiryDate" /> -->
+
+
+              <!-- <input type="text" class="form-control" placeholder="yyyy-mm-dd"
+                                    				id="datepicker" [value]="user.PasswordExpiryDate"
+													[(ngModel)]="user.PasswordExpiryDate"> -->
+              <!-- <div class="" id="sandbox-container">
+													<input type="date" class="form-control pull-up" placeholder="yyyy-mm-dd" [value]="user.PasswordExpiryDate" [(ngModel)]="user.PasswordExpiryDate">
+												</div> -->
+              <div class="" id="sandbox-container">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="col-xs-8 form-control" [value]="user.PasswordExpiryDate"
+                    [(ngModel)]="user.PasswordExpiryDate" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-sm-2">
+            <label>Cell Phone <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <input type="text" [(ngModel)]="user.CellPhone" class="col-xs-6 form-control" id="cell_phone" name="" />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label>Email <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <div class="controls">
+              <input type="text" [(ngModel)]="user.EmailAddress" class="col-xs-6 form-control" id="email_address"
+                name="" />
+            </div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-sm-2">
+            <label>Status <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <select class="col-xs-6 form-control" [(ngModel)]="user.Status" (ngModelChange)="user.Status=$event;">
+              <option *ngFor="let item of lstStatus ;let i=index " [value]="i+1">
+                {{item}}
+              </option>
+            </select>
+          </div>
+          <div class="col-sm-2">
+            <label>Access Rights </label>
+          </div>
+          <div class="col-sm-4">
+            <select class="col-xs-6 form-control pull-up" [(ngModel)]="user.AccessRight">
+              <option *ngFor="let accessRight of userUtils.lstAccessRight ;let i=index"
+                [value]="userUtils.lstAccessRight[i].Id">
+                {{userUtils.lstAccessRight[i].RightName}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-sm-2">
+            <label>Client ID <span class="text-danger">*</span></label>
+          </div>
+          <div class="col-sm-4">
+            <select name="" id="" class="form-control" [(ngModel)]="user.ClientID" >
+              <option [value]="-1">All</option>
+              <option *ngFor="let obj of listClientData;let i=index;" [value]="listClientData[i].ClientID">{{listClientData[i].Name}}</option>
+          </select>
+          </div>
+        </div>
+       
+       <!-- <div class="row mb-2">
+          <div class="col-sm-2">
+            &nbsp;
+          </div>
+          <div class="col-sm-4" *ngIf="previewUrl">
+            <img [src]="previewUrl" alt="" width="150px" height="80px">
+          </div>
+          <div class="col-sm-2">
+            &nbsp;
+          </div>
+          <div class="col-sm-4">
+            <img [src]="previewUrl2" alt="" width="150px" height="80px">
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+
+    <div class="box">
+      <div class="box-footer">
+        <button class="myButton mr-2" (click)="SaveUser(user)" aria-haspopup="true" aria-expanded="false">
+          <span *ngIf="!isUpdate"><i class="ti-save-alt"></i> Save</span>
+          <span *ngIf="isUpdate"><i class="ti-save-alt"></i> Update</span>
+        </button>
+        <button class="myButton_brown" (click)="reset()" aria-haspopup="true" aria-expanded="false"><i
+            class="ti-trash"></i> Reset</button>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-body">
+        <!-- <div id="slimtest8"> -->
+        <div class="table-responsive tsc">
+          <table class="unstyledTable table-striped table-bordered table-hover">
+            <thead class="bg-primary2">
+              <tr class="row-color">
+                <th class="fixheaderT" >
+                  <span>Sl</span>
+                </th>
+                <th class="fixheaderT" >
+                  <span>Client ID</span>
+                </th>
+                <th class="fixheaderT" >
+                  <span>User ID</span>
+                </th>
+                <th class="fixheaderT" >
+                  <span>Name</span>
+                </th>
+                <th class="fixheaderT" >
+                  <span>Surname</span>
+                </th>
+                <th class="fixheaderT" >
+                  <span>Email</span>
+                </th>
+                <th class="fixheaderT" >
+                  <span>Status</span>
+                </th>
+                <th class="fixheaderT">
+                  <div><span>Action</span></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of lstUser;let i=index">
+                <td>{{i+1}}</td>
+                <td>{{obj.ClientID}}</td>
+                <td>{{obj.UserID}}</td>
+                <td>{{obj.Name}}</td>
+                <td>{{obj.Surname}}</td>
+                <td>{{obj.EmailAddress}}</td>
+                <td><span class="badge badge-pill badge-success">{{obj.Status}}</span>
+                </td>
+
+                <td>
+                  <a href="javascript:void(0)" class="text-danger" data-original-title="Edit" data-toggle="tooltip"
+                    (click)="updateUser(obj)">
+                    <i class="ti-marker-alt"></i>
+                  </a> &nbsp;&nbsp;
+                  <a href="javascript:void(0)" class="text-danger" data-original-title="Session Log"
+                    data-toggle="tooltip" (click)="goToSessionLog(obj)">
+                    <i class="ti-files"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- /.content -->

@@ -1,0 +1,147 @@
+<!-- Main content -->
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto">
+        <h4 class="page-title">Add Client</h4>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  <div class="row">
+  
+    <div class="col-12">
+      <div class="box">
+        <div class="box-header bg-primary2 header-sub">
+          <span>Client Info</span>
+        </div>
+        <div class="box-body">
+          <div class="row mb-2">
+            <div class="col-sm-2">
+              <label>Client ID <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="client.ClientID" 
+                  class="col-xs-6 form-control mobileMarginBottom" id="key" name="" />
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label>Name <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="client.Name" class="col-xs-6 form-control mobileMarginBottom" id="value"
+                  name="" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-2">
+            <div class="col-sm-2">
+              <label>BDTrack Login ID <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="client.BDTrackLoginID" 
+                  class="col-xs-6 form-control mobileMarginBottom" id="key" name="" />
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label>Contact No </label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="client.ContactNo" class="col-xs-6 form-control mobileMarginBottom" id="value"
+                  name="" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-2">
+            <div class="col-sm-2">
+              <label>Address</label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="client.Address" 
+                  class="col-xs-6 form-control mobileMarginBottom" id="key" name="" />
+              </div>
+            </div>          
+          </div>
+         
+          
+          
+  
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="box-footer">
+          <button class="myButton mr-2" (click)="SaveClient()"  aria-haspopup="true" aria-expanded="false">
+            Save     
+          </button>          
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-body">
+          <!-- <div id="slimtest8"> -->
+          <div class="table-responsive tsc">
+            <table class="unstyledTable table-striped table-bordered table-hover">
+              <thead class="bg-primary2">
+                <tr class="row-color">
+                  <th class="fixheaderT" data-sort="int">
+                    <span>SL</span>
+                  </th>
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Client ID</span>
+                  </th>
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Name</span>
+                  </th>  
+                  <th class="fixheaderT" data-sort="string">
+                    <span>BDTrack Login ID</span>
+                  </th>  
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Contact No</span>
+                  </th>  
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Address</span>
+                  </th>  
+                  <th class="fixheaderT">
+                    <span>Action</span>
+                  </th>                
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor = "let obj of listClientData;let i=index">
+                <td style="text-align: center;">{{i+1}}</td>
+                <td style="text-align: center;">{{obj.ClientID}}</td>
+                <td style="text-align: center;">{{obj.Name}}</td>
+                <td style="text-align: center;">{{obj.BDTrackLoginID}}</td>
+                <td style="text-align: center;">{{obj.ContactNo}}</td>
+                <td style="text-align: center;">{{obj.Address}}</td>
+                <td style="text-align: center;">
+                    <a href="javascript:void(0)" class="text-info" data-original-title="Edit" 
+                    data-toggle="tooltip" (click) = "UpdateClient(obj)">
+                      <i class="ti-marker-alt"></i>
+                    </a> &nbsp;&nbsp;                    
+                  </td>
+                </tr>  
+              </tbody>
+            </table>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- /.content -->
+  

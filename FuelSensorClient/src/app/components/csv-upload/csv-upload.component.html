@@ -1,0 +1,118 @@
+
+
+				<!-- Main content -->
+				
+					<!-- Content Header (Page header) -->
+					<div class="content-header">
+						<div class="d-flex align-items-center">
+							<div class="mr-auto">
+								<h4 class="page-title">Fuel Sensor Data Upload</h4>
+								<div class="d-inline-block align-items-center">
+									<nav>
+									  <ol class="breadcrumb">
+										<li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
+										<li class="breadcrumb-item" aria-current="page">Fuel Sensor</li>
+										<li class="breadcrumb-item active" aria-current="page">Data Upload
+										</li>
+									  </ol>
+									</nav>
+								  </div>
+							</div>
+							<!-- <div class="mr-auto">
+								<div class="row">
+								  <div class="">
+									<label> Session <span style="color: darkgreen;"><strong>{{Candidate.SessionName}}</strong></span></label>
+								  </div>
+						  
+								</div>
+							  </div> -->
+						</div>
+						
+					</div>
+
+					<div class="row">
+						<div class="col-12">
+							<div class="box">
+								<div class="box-body">
+								    <div class="row">
+								        <!-- <div class="col-sx-6 col-md-4">
+											<div class="row">
+												<div class="col-sm-4">
+													<label for=""></label>
+												</div>
+												<div class="col-sm-8">
+													
+												</div>
+											</div>
+										</div> -->
+								        <div class="col-sx-6 col-md-6">
+								            <div class="row">
+                                                <div class="col-sm-2">
+                                                    <label>File</label>
+                                                </div>
+								                <div class="col-sm-10">
+														<input class="col-xs-7 form-control" type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)" accept=".csv" /> 
+                                                </div>
+								            </div>
+								        </div>
+								        <div class="col-sx-6 col-md-2 text-right">
+								            <button class="myButton" (click)="uploadCandidate()">Upload</button>
+								        </div>
+                                    </div>
+
+								    
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-12">
+							<div class="box">
+								<div class="box-body">
+										<!-- <div class="row mb-2 pl-5">
+								                <div class="col-sx-6 col-sm-2 col-md-2">
+								                    Total Candidate
+								                </div>
+								                <div class="col-sx-6 col-sm-4 col-md-4">
+														<input class="col-xs-7 form-control no-border" readonly type="text" [(ngModel)]="totalSave" />
+								                </div>
+								                <div class="col-sx-6 col-sm-2 col-md-2">
+								                    Total Not Save
+								                </div>
+								                <div class="col-sx-6 col-sm-4 col-md-4">
+														<input class="col-xs-7 form-control no-border" readonly type="text" [(ngModel)]="totalNotSave" />
+								                </div>
+								    </div> -->
+									
+										<div class="table-responsive tsc">
+											<table class="unstyledTable table-striped table-bordered table-hover">
+												<thead class="bg-primary2">
+													<tr class="row-color">
+
+														<th class="fixheader" *ngFor="let header of lstHeader ">
+															<div class="tableColumn">
+																<span>{{header}}</span>
+															</div>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr *ngFor="let obj of records | paginate: config;let i=index ">
+														
+														<td nowrap *ngFor="let i of lstHeader">
+															{{obj[i]}}
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+								</div>
+							</div>
+                        </div>
+					</div>
+				
+				<!-- /.content -->
+			
+

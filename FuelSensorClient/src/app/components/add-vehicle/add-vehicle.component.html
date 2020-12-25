@@ -1,0 +1,154 @@
+<!-- Main content -->
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto">
+        <h4 class="page-title">Add Vehicle</h4>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  <div class="row">
+  
+    <div class="col-12">
+      <div class="box">
+        <div class="box-header bg-primary2 header-sub">
+          <span>Vehicle Info</span>
+        </div>
+        <div class="box-body">
+          <div class="row mb-2">
+            <div class="col-sm-2">
+              <label>Tracker Name <span class="text-danger">*</span></label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="vehicle.TrackerName" class="col-xs-6 form-control mobileMarginBottom" id="key"                  
+                  name="" />
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <label>Tracker Type</label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="vehicle.TrackerType" class="col-xs-6 form-control mobileMarginBottom" id="value"
+                  name="" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-2">
+            <div class="col-sm-2">
+              <label>Client ID<span class="text-danger">*</span></label>
+            </div>
+            <div class="col-sm-4">
+                <select name="" id="" class="form-control" [(ngModel)]="vehicle.ClientID">
+                    <option *ngFor="let obj of listClientData;let i=index;" [value]="listClientData[i].ClientID">{{listClientData[i].Name}}</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+              <label>Fuel Capacity<span class="text-danger">*</span></label>
+            </div>
+            <div class="col-sm-4">
+              <div class="controls">
+                <input type="text" [(ngModel)]="vehicle.FuelCapacity" class="col-xs-6 form-control mobileMarginBottom" id="value"
+                  name="" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mb-2">
+            <div class="col-sm-2">
+              <label>Installation Date<span class="text-danger">*</span></label>
+            </div>
+            <div class="col-sm-4">
+              <div class="" id="sandbox-container" style="z-index: 31;">
+                <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input type="text" class="col-xs-8 form-control" [value]="vehicle.InstallationDate"
+                    [(ngModel)]="vehicle.InstallationDate" style="z-index: 50;" />
+                </div>
+              </div>
+
+            
+            </div>
+            
+          </div>
+         
+          
+          
+  
+        </div>
+      </div>
+  
+      <div class="box">
+        <div class="box-footer">
+          <button class="myButton mr-2" (click)="SaveParameter()"  aria-haspopup="true" aria-expanded="false">
+            Save     
+          </button>          
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-body">
+          <!-- <div id="slimtest8"> -->
+          <div class="table-responsive tsc">
+            <table class="unstyledTable table-striped table-bordered table-hover">
+              <thead class="bg-primary2">
+                <tr class="row-color">
+                  <th class="fixheaderT" data-sort="int">
+                    <span>SL</span>
+                  </th>
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Tracker Name</span>
+                  </th>
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Tracker Type</span>
+                  </th>  
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Client Name</span>
+                  </th>  
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Fuel Capacity</span>
+                  </th>  
+                  <th class="fixheaderT" data-sort="string">
+                    <span>Installation Date</span>
+                  </th>  
+                  <th class="fixheaderT">
+                    <span>Action</span>
+                  </th>                
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor = "let obj of VehicleList;let i=index">
+                <td style="text-align: center;">{{i+1}}</td>
+                <td style="text-align: center;">{{obj.TrackerName}}</td>
+                <td style="text-align: center;">{{obj.TrackerType}}</td>
+                <td style="text-align: center;">{{obj.ClientName}}</td>
+                <td style="text-align: center;">{{obj.FuelCapacity}}</td>
+                <td style="text-align: center;">{{obj.InstallationDate | date:"dd-MMM-yyyy"}}</td>
+                <td style="text-align: center;">
+                    <a href="javascript:void(0)" class="text-info" data-original-title="Edit" 
+                    data-toggle="tooltip" (click) = "UpdateParameter(obj)">
+                      <i class="ti-marker-alt"></i>
+                    </a> &nbsp;&nbsp;                    
+                  </td>
+                </tr>  
+              </tbody>
+            </table>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- /.content -->
+  

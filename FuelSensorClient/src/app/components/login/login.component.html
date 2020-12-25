@@ -1,0 +1,83 @@
+<div class="hold-transition theme-fruit bg-img" style="background-image: url(assets/images/bglogin2.jpg);
+background-position: center center;
+background-repeat:  no-repeat;
+background-attachment: fixed;
+background-size:  cover;
+background-color: #999;">
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="row justify-content-center no-gutters">
+        <div class="col-xs-12 col-md-12 col-12">
+          <div class="box-body" style="background-color: rgba(248, 244, 244, 0.4);">
+            <div class="content-top-agile" style="text-align: center;">
+              <div class="logo">
+                <!-- <a href="#" class="aut-logo my-40 d-block"> -->
+                <img src="assets/images/logo.png" alt="">
+                <!-- </a> -->
+              </div>
+              <h2><span style="color:#000;">Fuel Report</span></h2>
+            </div>
+            <div class="p-30">
+              <form id="sign_in" method="POST">
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text text-white bg-transparent"><i class="ti-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control pull-up" name="txtUserId" [(ngModel)]="user.userID"
+                      placeholder="User Id" required autofocus>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text text-white bg-transparent"><i class="ti-lock"></i></span>
+                    </div>
+                    <input type="password" class="form-control pull-up" name="txtPassword" [(ngModel)]="user.password"
+                      placeholder="Password" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="checkbox text-white">
+                      <input type="checkbox" id="basic_checkbox_1" class="filled-in chk-col-danger" checked="">
+                      <label for="basic_checkbox_1">Remember Me </label>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-6">
+                    <div class="fog-pwd text-right">
+                      <a href="javascript:void(0)" class="hover-info text-white"><i class="ion ion-locked"></i>
+                        Forgot pwd?</a><br>
+                    </div>
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-12 text-center">
+                    <button class="btn bg-primary2 mt-10 pull-up" (click)="signin()" type="submit"
+                      value="Send">SIGN IN</button>
+                  </div>
+                  <!-- /.col -->
+                </div>
+              </form>
+
+              <!-- <div class="text-center">
+                    <p class="mt-20 text-white">- Sign With -</p>
+                    <p class="gap-items-2 mb-20">
+                        <a class="btn btn-social-icon btn-facebook" href="#"><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-google" href="#"><i class="fa fa-google-plus"></i></a>
+                        <a class="btn btn-social-icon btn-instagram" href="#"><i class="fa fa-instagram"></i></a>
+                      </p>	
+                  </div> -->
+
+              <!-- <div class="text-center text-white">
+                      <p class="mt-15 mb-0">Don't have an account? <a href="auth_register.html" class="text-white ml-5">Sign Up</a></p>
+                  </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
